@@ -31,7 +31,7 @@ converter = thermometer;
 converter = pitotTube;
 ((PitotTube) converter).isFast();
 ```
-In above code segment a temporary reference of Thermometer and PitotTube is created, object referred by ```converter``` is casted to these subclasses to gain the access to the subclass specific functions, now compiler finds declaration of called method in the scope referred object, and compile time error resolves and we are good to go for the execution.
+In above code segment a temporary reference of Thermometer and PitotTube is created, object referred by ```converter``` is casted to these subclasses to gain the access to the subclass specific functions, now compiler finds declaration of called method in the scope referred object, and compile time error resolves and we are good to go for the execution. The actual method definition is linked with the call at runtime, determined by the type of object i.e. what the actual object's implementation for the method call.
     During typecast compiler trusts on the programmer for the compatibility of actual type of object and the type of reference on which object is to be assigned.
 But suppose programmer do mistake like,
 
