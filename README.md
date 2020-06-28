@@ -1,6 +1,6 @@
-#Runtime Polymorphism
+# Runtime Polymorphism
 
-##Why its possible to call ```converter.convert()``` method on its subclass instances?
+## Why its possible to call ```converter.convert()``` method on its subclass instances?
 
 Since, ````Thermometer, Thermocouple, ShaftLog, PitotTube```` are the classes who implemented the ```Converter``` interface, hence they can be upcasted so that a Converter type reference can refer each of them. Basically they are a Converter type objects too. Again,  ```Object convert(Object)``` method is declared in Converter interface so calling it on Converter type reference is legal whose actual implementation is linked at runtime depending on the type of real object to which  ```converter``` is referring. Following code segment is good to go.
 
@@ -10,7 +10,7 @@ Converter converter = thermometer;
 converter.convert();
 ```
 
-##Why calling ```converter.isHot(1.0)``` or  ```converter.isFast(1.0)``` fails?
+## Why calling ```converter.isHot(1.0)``` or  ```converter.isFast(1.0)``` fails?
 
 Though ```converter``` is referring to ```thermometer``` or ```pitotTube``` calling ```converter.isHot(1.0)``` or ```converter.isFast(1.0)``` will fail in respected conditions. Since, ```isHot``` and ```isFast``` method are not declared in scope of Converter interface. During compilation method binding looks for the method declaration in scope of reference type rather than the scope of actual type, so compiler don't allow calling an undeclared function, it will cause a Compile time error.
 
@@ -21,7 +21,7 @@ converter = pitotTube;
 // converter.isFast();          Compilation Error
 ```
 
-##Why typecasting make it possible to call these functions?
+## Why typecasting make it possible to call these functions?
 
 Downcasting ```converter``` to ```Thermometer``` or ```PitotTube``` type forces compiler to treat the referred object as casted type object.
 
